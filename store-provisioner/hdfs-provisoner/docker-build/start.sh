@@ -18,7 +18,7 @@ sed -i "s/@HDFS_REP@/$HDFS_REP/g" $HADOOP_HOME/etc/hadoop/hdfs-site.xml
 HADOOP_NODE="${HADOOP_NODE_TYPE}"
 
 /etc/init.d/ssh start
-java -cp /custom/prometheus_export:/custom/prometheus_export/lib/* DirectorySizeExport 10318 /usr/bin/du /custom/hdfs_dir/ &
+java -cp /custom/prometheus_export:/custom/prometheus_export/lib/* DirectorySizeExport 10318 /usr/bin/du /bin/df /custom/hdfs_dir/ &
 
 if [[ $HADOOP_NODE = "datanode" ]]; then
 	echo "Start DataNode ..."
